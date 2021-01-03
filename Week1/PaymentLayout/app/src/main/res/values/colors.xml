@@ -12,6 +12,7 @@
     <color name="half_transparency">#39000000</color>
     <color name="tab_unfocus">#FF9C9A9D</color>
     <color name="top_chatbot">#FF0C1445</color>
-    <color name="mid_pannel">#FFEFF2F7</color>
+    <color name="grid_back_pannel">#FFEFF2F7</color>
+    <color name="table_btn_text">#FF697A8A</color>
     <color name="switch_point">#FF4A69DE</color>
 </resources>
