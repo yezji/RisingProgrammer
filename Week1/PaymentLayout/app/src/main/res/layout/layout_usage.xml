@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:id="@+id/ib_banner"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:src="@drawable/img_banner"
+        android:scaleType="fitStart"
+        android:background="@color/transparency" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:clickable="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_month_usage_month"
+            android:textSize="24dp"
+            android:textColor="@color/black" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_month_usage_text"
+            android:textSize="24dp"
+            android:textColor="@color/black" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:clickable="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_month_usage_value"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_benefit_won"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+    </LinearLayout>
+    <android.widget.ImageButton
+        android:layout_width="270dp"
+        android:layout_height="35dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/btn_banner"
+        android:background="@drawable/btn_round_text"
+        android:scaleType="centerInside"
+        android:layout_gravity="center" />
+</LinearLayout>
