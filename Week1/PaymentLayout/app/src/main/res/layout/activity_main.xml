@@ -144,7 +144,8 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:src="@drawable/btn_nav_back"
-            android:background="@color/transparency"/>
+            android:background="@color/transparency"
+            android:scaleType="fitXY"/>
 
         <Button
             android:id="@+id/btn_nav_01"
