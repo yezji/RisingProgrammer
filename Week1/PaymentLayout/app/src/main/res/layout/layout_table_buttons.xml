@@ -10,13 +10,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tv_benefit_this_month" />
-            <Button
+                android:text="@string/tv_benefit_this_month"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"/>
+
+            <android.widget.Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:textColor="#FF697a8a"
-                android:text="@string/btn_benefit_card" />
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/btn_table_color"
+                android:letterSpacing="-0.1"
+                android:text="@string/btn_benefit_card"
+                android:textColor="@color/table_btn_text"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_gravity="center_vertical"/>
         </TableRow>
         <TableRow>
             <LinearLayout
@@ -24,15 +33,22 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:clickable="true"
-                android:layout_span="2">
+                android:layout_span="2"
+                android:layout_weight="1">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tv_benefit_value"/>
+                    android:text="@string/tv_benefit_value"
+                    android:textSize="24dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tv_benefit_won" />
+                    android:text="@string/tv_benefit_won"
+                    android:textSize="24dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
             </LinearLayout>
         </TableRow>
     </TableLayout>
@@ -44,12 +60,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tv_point" />
-            <Button
+                android:text="@string/tv_point"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"/>
+            <android.widget.Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:text="@string/btn_point_transition" />
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/btn_table_color"
+                android:letterSpacing="-0.1"
+                android:text="@string/btn_point_transition"
+                android:textColor="@color/table_btn_text"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_gravity="center_vertical"/>
         </TableRow>
         <TableRow>
             <LinearLayout
@@ -57,56 +82,104 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:clickable="true"
-                android:layout_span="2">
+                android:layout_span="2"
+                android:layout_weight="1">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tv_point_value"/>
+                    android:text="@string/tv_point_value"
+                    android:textSize="24dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tv_point_p" />
+                    android:text="@string/tv_point_p"
+                    android:textSize="24dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
             </LinearLayout>
         </TableRow>
     </TableLayout>
         <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_back_table">
         <TableRow>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tv_payment_day" />
-            <TextView
+                android:text="@string/tv_payment_day"
+                android:gravity="left"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"/>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tv_payment_day_text" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tv_payment_day_value" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tv_payment_day_bill" />
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:layout_margin="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_payment_day_text"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="3dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_payment_day_value"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="3dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_payment_day_bill"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="3dp"/>
+            </LinearLayout>
         </TableRow>
         <TableRow>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tv_payment_acc" />
-            <TextView
+                android:text="@string/tv_payment_acc"
+                android:gravity="left"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"/>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tv_payment_acc_bank_name" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tv_payment_acc_bank_value" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_payment_acc_bank_change" />
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:layout_margin="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_payment_acc_bank_name"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="3dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_payment_acc_bank_value"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="3dp"/>
+
+                <android.widget.Button
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/btn_table_color"
+                    android:letterSpacing="-0.1"
+                    android:text="@string/btn_payment_acc_bank_change"
+                    android:textColor="@color/table_btn_text" />
+            </LinearLayout>
         </TableRow>
     </TableLayout>
 </LinearLayout>
