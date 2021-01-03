@@ -1,6 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tvWalletTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_back_wallet_up"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:padding="10dp"
+        android:text="@string/tv_wallet"
+        android:textColor="@color/white"
+        android:drawableLeft="@drawable/ic_wallet"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"/>
+    <TextView
+        android:id="@+id/tvWalletBody"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_back_wallet_down"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWalletTitle"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:padding="10dp"
+        android:drawableLeft="@drawable/img_paymoney"
+        android:text="@string/tv_wallet_desc"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"/>
+    <View
+        android:background="#FFDFDFDF"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWalletBody"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/tvWalletBottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:background="@drawable/shape_back_wallet_back"
+        android:drawableLeft="@drawable/ic_add_paymoney"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/btn_wallet"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWalletBody" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
