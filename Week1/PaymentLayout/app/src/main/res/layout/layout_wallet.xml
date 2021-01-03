@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="1dp"
         android:layout_marginRight="1dp"
-        android:background="@drawable/shape_back_wallet_back"
+        android:background="@drawable/shape_back_wallet_bottom"
         android:drawableLeft="@drawable/ic_add_paymoney"
         android:gravity="center"
         android:padding="10dp"
