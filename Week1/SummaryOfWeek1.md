@@ -1,4 +1,4 @@
-# # Summary of Week1
+# Summary of Week1
 ## 1. Developer
 * 균형잡힌 개발자의 요소
   * 소통과 공감
