@@ -1,3 +1,75 @@
 <resources>
     <string name="app_name">PaymentLayout</string>
+
+    <string name="tab_top_timeline">타임라인</string>
+    <string name="tab_top_home">MY홈</string>
+    <string name="tab_top_service">서비스</string>
+
+    <string name="btn_arrow">></string>
+    <string name="btn_chatbot_text">고객님의 소비/자산 관리를 도와드릴게요</string>
+
+    <string name="btn_img_mywallet">내 손안의 똑똑한 지갑<br/>My월렛 오픈 ></string>
+    <string name="tv_month_usage_month">12</string>
+    <string name="tv_month_usage_text">월 이용대금 명세서</string>
+    <string name="tv_month_usage_value">773,260</string>
+    <string name="btn_shplus">금융과 포인트를 한 곳에서! 신한</string>
+
+    <string name="btn_mid_01">추천혜택</string>
+    <string name="btn_mid_02">My리포트</string>
+    <string name="btn_mid_03">My금융</string>
+    <string name="btn_mid_04">할인쿠폰</string>
+    <string name="btn_mid_05">Tops쿠폰</string>
+    <string name="btn_mid_06">My송금</string>
+    <string name="btn_mid_07">STARBUCKS</string>
+    <string name="btn_mid_08">My빌&amp;페이</string>
+    <string name="btn_mid_09">My투자</string>
+    <string name="btn_mid_10">올댓쇼핑</string>
+    <string name="btn_mid_11">My Car</string>
+    <string name="btn_mid_12">신한카드 홈</string>
+
+    <string name="tv_wallet">My월렛</string>
+    <string name="tv_wallet_desc">바로 발급 받고 바로 사용할 수 있어요</string>
+    <string name="btn_wallet">신한Pay머니 발급</string>
+
+    <string name="tv_benefit_this_month">이달에 받은 혜택</string>
+    <string name="btn_benefit_card">카드실적충족현황</string>
+    <string name="tv_benefit_value">0</string>
+    <string name="tv_benefit_won">원 ></string>
+    <string name="tv_point">마이신한포인트</string>
+    <string name="btn_point_transition">포인트전환</string>
+    <string name="tv_point_value">0</string>
+    <string name="tv_point_p">P ></string>
+
+    <string name="tv_payment_day">결제일</string>
+    <string name="tv_payment_acc">결제 계좌</string>
+    <string name="tv_payment_day_text">매월</string>
+    <string name="tv_payment_day_value">14</string>
+    <string name="tv_payment_day_bill">(이메일(보안))</string>
+    <string name="tv_payment_acc_bank_name">기업은행</string>
+    <string name="tv_payment_acc_bank_value">628*****1011</string>
+    <string name="btn_payment_acc_bank_change">변경</string>
+    <string name="tv_debitcard_limit_text_front">체크카드 일 이용한도</string>
+    <string name="tv_debitcard_limit_text_back">남음</string>
+    <string name="tv_debitcard_limit_value">93%</string>
+    <string name="tv_devitcard_use_text">이용</string>
+    <string name="tv_devitcard_use_value">1,000,000</string>
+    <string name="tv_devitcard_daylimit_text">일 이용한도</string>
+    <string name="tv_devitcard_daylimit_value">6,000,000</string>
+    <string name="btn_devitcard_credit">체크소액신용서비스신청</string>
+    <string name="btn_devitcard_special">특별한도신청</string>
+    <string name="tv_devitcard_won">원</string>
+
+    <string name="tv_recent_details_text">최근이용내역</string>
+    <string name="btn_custom_menu_tag">#즐겨찾는메뉴뉴</string>
+    <string name="tv_paid_store_text">STEAM</string>
+    <string name="tv_paid_value">6400</string>
+    <string name="tv_paid_date">2020.12.25 11:23</string>
+    <string name="tv_paid_card_front">본인</string>
+    <string name="tv_paid_card_back">3155</string>
+
+    <string name="tv_hidevalue_text">홈 화면에 금액 표시가 부담스러우실 경우<br/>OFF를 선택하시면 숨김처리 됩니다.</string>
+
+    <string name="nav_bottom_qr">QR스캔</string>
+    <string name="nav_bottom_barcode">바코드생성</string>
+    <string name="nav_bottom_touch">터치결제</string>
 </resources>

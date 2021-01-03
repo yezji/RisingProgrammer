@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transparency">#00FFFFFF</color>
+
+    <color name="half_transparency">#39000000</color>
+    <color name="tab_unfocus">#FF9C9A9D</color>
+    <color name="top_chatbot">#FF0C1445</color>
+    <color name="mid_pannel">#FFEFF2F7</color>
+    <color name="switch_point">#FF4A69DE</color>
 </resources>
