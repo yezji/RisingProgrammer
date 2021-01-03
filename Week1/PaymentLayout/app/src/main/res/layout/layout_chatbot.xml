@@ -21,5 +21,6 @@
         android:singleLine="true"
         android:drawableRight="@drawable/ic_arrow"
         android:padding="5dp"
-        android:layout_margin="5dp" />
+        android:layout_margin="5dp"
+        style="?android:attr/borderlessButtonStyle"/>
 </RelativeLayout>
