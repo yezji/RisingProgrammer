@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:rowCount="3"
     android:columnCount="4"
-    android:background="@color/mid_pannel"
+    android:background="@color/grid_back_pannel"
     android:padding="10dp">
     <LinearLayout
         android:layout_width="wrap_content"
