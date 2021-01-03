@@ -14,7 +14,8 @@
                 android:textColor="@color/black"
                 android:textSize="18dp"
                 android:layout_weight="1"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical"
+                android:letterSpacing="-0.1"/>
 
             <android.widget.Button
                 android:layout_width="wrap_content"
@@ -53,6 +54,14 @@
         </TableRow>
     </TableLayout>
 
+    <View
+        android:background="#FFDFDFDF"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"/>
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -64,7 +73,8 @@
                 android:textColor="@color/black"
                 android:textSize="18dp"
                 android:layout_weight="1"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical"
+                android:letterSpacing="-0.1"/>
             <android.widget.Button
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
@@ -101,7 +111,16 @@
             </LinearLayout>
         </TableRow>
     </TableLayout>
-        <TableLayout
+
+    <View
+        android:background="#FFDFDFDF"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"/>
+
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/shape_back_table">
@@ -112,14 +131,15 @@
                 android:text="@string/tv_payment_day"
                 android:gravity="left"
                 android:layout_gravity="center_vertical"
-                android:layout_margin="10dp"/>
+                android:layout_margin="15dp"
+                android:letterSpacing="-0.1"/>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_weight="1"
                 android:gravity="right"
-                android:layout_margin="10dp">
+                android:layout_gravity="center_vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -140,6 +160,15 @@
                     android:layout_marginRight="3dp"/>
             </LinearLayout>
         </TableRow>
+        <TableRow android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+            <View
+                android:background="#FFDFDFDF"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+        </TableRow>
         <TableRow>
             <TextView
                 android:layout_width="wrap_content"
@@ -147,7 +176,8 @@
                 android:text="@string/tv_payment_acc"
                 android:gravity="left"
                 android:layout_gravity="center_vertical"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:letterSpacing="-0.1"/>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
