@@ -152,12 +152,12 @@
 * Layouts
    |분류|뷰 이름|특징|
    |---|---|---|
-   |Layouts|ConstraintLayout|||
-   |Layouts|LinearLayout (horizontal)|||
-   |Layouts|LinearLayout (vertical)|||
-   |Layouts|FrameLayout|||
-   |Layouts|TableLayout|||
-   |Layouts|TableRow|||
+   |Layouts|ConstraintLayout|평평한 구조를 가진 Layout, View에 대한 제약조건(Constraint)을 적용하여 각 뷰의 위치와 크기를 유연하게 조절|
+   |Layouts|LinearLayout (horizontal)|서로 중첩되지 않고 지정된 방향으로 View가 쌓이는 Layout, 수평으로 View를 나열|
+   |Layouts|LinearLayout (vertical)|서로 중첩되지 않고 지정된 방향으로 View가 쌓이는 Layout, 수직으로 View를 나열|
+   |Layouts|FrameLayout|여러 View위젯을 자식으로 추가하면 겹쳐진 형태로 표시되며, 가장 최근에 추가된 View 위젯이 가장 상위에 표시, 이러한 특징을 이용해 가장 상위의 View 위젯만 표시하고 나머지는 보이지 않게 만듦으로써 하나의 자식 View만 표시|
+   |Layouts|TableLayout|View를 행과 열로 나누는 테이블 형식으로 표시하는 Layout, TableLayout에 View위젯을 추가하기 위해서는 먼저 TableRow 클래스를 사용하여 하나의 행을 추가한 뒤 각 행에 View위젯을 추가하면 테이블 형태로 정렬되어 표시|
+   |Layouts|TableRow|TableLayout에 추가되는 컴포넌트|
    |Layouts|Space|||
 * Containers
    |분류|뷰 이름|특징|
@@ -203,11 +203,11 @@
 * Legacy
    |분류|뷰 이름|특징|
    |---|---|---|
-   |Legacy|GridLayout|||
+   |Legacy|GridLayout|2차원의 행과 열로 구성된 Layout, 인덱스로 참조되며 좌상단에서부터 (0, 0) 좌표 값으로 시작. TableLayout과 유사하나 자식View를 순서대로 배치하기 때문에 LinearLayout과 유사한 점이 더 많음. GridView와 다르게 스크롤 불가, 화면구조 정의만|
    |Legacy|ListView|||
    |Legacy|TabHost|||
-   |Legacy|RelativeLayout|||
-   |Legacy|GridView|||
+   |Legacy|RelativeLayout|어떤 View와의 상대적인 위치를 지정하는 Layout, RelativeLayout의 자식View들에 상대적 배치 기준을 지정하지 않는다면, RelativeLayout 내부에서 중첩되어 표시|
+   |Legacy|GridView|2차원 스크롤 격자의 항목을 표시하는 ViewGroup, ListAdapter를 이용하여 데이터를 가져오기에 Adapter를 통하지 않고 다른 데이터 입력 불가. GridLayout과 다르게 자동 스크롤|
 ## 3. Layout
 > Linear, Relative, Frame, Table, Grid, Constraint 6가지 Layout 조사
 1. Linear Layout
@@ -218,13 +218,13 @@
 2. Relative Layout
    * 위젯 자신이 속한 레이아웃의 상하좌우의 위치를 지정하여 배치
 3. Constraint Layout
-   * 복잡한 레이아웃을 깊은 계층을 가지지 않고 배치
+   * 평평한 구조를 가진 Layout. View에 대한 제약조건(Constraint)을 적용하여 각 뷰의 위치와 크기를 유연하게 조절. 복잡한 레이아웃을 깊은 계층을 가지지 않고 배치
    * 특징
      * 레이아웃 사이의 관계에 따라 배치가 결정된다는 점에서 `RelativeLayout`과 유사하지만, `RelativeLayout`보다 유연하고 Android Studio의 Layout Editor와 함께 사용하기가 더 쉽기에 개발자가 인터페이스를 더욱 풍부한 방식으로 표현할 수 있다.
    * 규칙
      * 가로와 세로 하나씩 두 개 이상의 제약조건이 필요
    * 크기 조정 방법
-      ![layout_editor](https://developer.android.com/images/training/constraint-layout/constraint-layout-editor-attributes-2x.png)
+      ![layout_editor](https://developer.android.com/images/training/constraint-layout/constraint-layout-editor-attributes-2x.png){:width="50%" height="50%"}
       1. 크기를 비율로 설정 (toggle aspect ratio constraint)
          * 너비:높이 입력
       2. 제약조건 삭제
@@ -253,3 +253,4 @@
 ## 4. Layout 화면 구축
 > 3번의 Layout 전부 활용하여 실제 Product 수준의 화면 구축
 * [PaymentLayout link](https://github.com/yezji/RisingProgrammer/tree/main/Week1/PaymentLayout)
+* reference layout ![reference layout](./week1_reference.jpg){:width="40% height="40%"}
