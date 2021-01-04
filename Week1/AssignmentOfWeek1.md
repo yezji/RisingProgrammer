@@ -89,69 +89,69 @@
 * View와 ViewGroup
   * 눈에 보이는 요소 `Widget`, Widget을 담는 틀 `Layout`
 * Common
-   |분류|뷰 이름|특징|용도|
-   |---|---|---|---|
-   |Common|TextView|||
-   |Common|Button|||
-   |Common|ImageView|||
-   |Common|RecyclerView|||
-   |Common|&lt;Fragment&gt;|||
-   |Common|ScrollView|||
-   |Common|Switch|||
+   |분류|뷰 이름|특징
+   |---|---|---|
+   |Text|TextView|화면에 텍스트를 표시|
+   |Buttons|Button|탭하거나 클릭하여 작업을 수행할 수 있는 Button, Java(혹은 Kotlin) 코드에서 setOnClickListener로 버튼 동작 정의 가능|
+   |Widgets|ImageView|View의 속성을 상속받아 공간 안에 사진을 표시|
+   |Containers|RecyclerView|스크롤이 가능한 컨테이너에 여러 개의 뷰를 담아서 보여주는 ViewGroup. *ListView 보다 진보하고 유연해진 버전 (ListView는 100개의 item이 있다면 100개의 view를 일일이 다 생성하지만 RecyclerView는 화면에 보여지는 일정 갯수의 view객체만 생성하고 스크롤 할 때마다 화면 밖으로 나간 view의 정보를 ViewHolder에 저장시켜놓고 해당 view객체들을 재활용)*
+   |Containers|&lt;fragment&gt;|FragmentActivity 내의 어떤 동작이나 UI 일부 그리고 액티비티의 모듈식 섹션. 여러 개의 Fragment를 하나의 Activity에 결합하여 창이 여러 개인 UI를 빌드, 하나의 Fragment를 여러 Activity에서 재사용할 수 있음. 자체적인 수명 주기를 가지고 자체 입력 이벤트를 수신, 액티비티 실행 중에 추가 및 삭제가 가능 (다른 액티비티에 재사용할 수 있는 "하위 액티비티"와 같은 개념")|
+   |Containers|ScrollView|수직(위아래)으로 스크롤 하는 위젯, 하나의 위젯만 가능|
+   |Buttons|Switch|텍스트 오른쪽에 스위치 생성, 스위치는 두 가지 옵션 중에서 선택할 수 있는 2-state-togglem,  드래그하여 옵션을 선택하거나 탭하여 확인한 것 처럼 toggle 기능|
 * Text
-   |분류|뷰 이름|특징|용도|
-   |---|---|---|--|
-   |Text|TextView|||
-   |Text|Plain Text|||
-   |Text|Password|||
-   |Text|Password (Numeric)|||
-   |Text|E-mail|||
-   |Text|Phone|||
-   |Text|Postal Address|||
-   |Text|Multiline Text|||
-   |Text|Time|||
-   |Text|Date|||
-   |Text|Number|||
-   |Text|Number (Signed)|||
-   |Text|Number (Decimal)|||
-   |Text|AutoCompleteTextView|||
-   |Text|MultiAutoCompleteTextView|||
-   |Text|CheckedTextView|||
-   |Text|TextInputLayout|||
+   |분류|뷰 이름|특징|
+   |---|---|---|
+   |Text|TextView|화면에 텍스트 표시|
+   |Text|Plain Text|표준 텍스트 키보드 표시하는 TextView|
+   |Text|Password|표준 텍스트 키보드 표시, 개인정보 보호를 위해 입력한 텍스트 숨김 처리(ex. ***)|
+   |Text|Password (Numeric)|숫자 키보드 표시, 개인정보 보호를 위해 입력한 텍스트 숨김 처리|
+   |Text|E-mail|스페이스바 왼쪽에 '@' 문자를 추가한 표준 텍스트 키보드 표시|
+   |Text|Phone|전화번호 형식의 텍스트(ex. 000-000)를 입력하기 쉽도록 숫자 키보드 표시, '-' 문자 표시|
+   |Text|Postal Address|우편번호 형식의 텍스트를 입력하기 쉽도록 키보드 맨 윗줄에 길게 탭했을 때 숫자 입력 지원|
+   |Text|Multiline Text|새 줄을 추가하기 위해 Enter 키를 추가하여 표준 텍스트 키보드 표시|
+   |Text|Time|시간 형식의 텍스트(ex. 12:00)를 입력하기 쉽도록 ':' 문자 추가하여 숫자 키보드를 표시|
+   |Text|Date|날짜 형식의 텍스트(ex. 2021/01/01)를 입력하기 쉽도록 '/' 문자 추가하여 숫자 키보드를 표시|
+   |Text|Number|기본 숫자 키보드 표시, '-', ',', '.' 등의 부호 입력 불가|
+   |Text|Number (Signed)|기본 숫자 키보드 표시, 시작 시 양수 음수('+', '-') 문자 허용, 숫자를 입력하는 도중에는 '-'를 입력할 수 없고 이 외에 ',', '.' 부호 입력 불가|
+   |Text|Number (Decimal)|기본 숫자 키보드 표시, 소수점('.') 문자 허용, '-'와 ',' 사용 불가 |
+   |Text|AutoCompleteTextView|사용자가 입력하는 동안 자동완성 제안을 표시하는 Editable TextView, 제안 목록이 드룹 다운 메뉴에 표시되어 사용자가 편집 상자의 내용을 바꿀 항목을 선택|
+   |Text|MultiAutoCompleteTextView|확장 가능한 Editable TextView, 전체 내용 대신 입력하는 텍스트의 하위 문자열에 대한 완성 제안을 표시|
+   |Text|CheckedTextView|체크박스르르 제공하는 확장 TextViewMainActivity에서 setOnClickListener를 통해 체크박스의 체크와 해제 속성 부여 가능|
+   |Text|TextInputLayout|텍스트를 입력하는 곳이 Layout의 속성을 가져 Layout 속성을 설정하듯이 속성을 설정|
 * Buttons
-   |분류|뷰 이름|특징|용도|
-   |---|---|---|--|
-   |Buttons|Button|||
-   |Buttons|ImageButton|||
-   |Buttons|ChipGroup|||
-   |Buttons|Chip|||
-   |Buttons|CheckBox|||
-   |Buttons|RadioGroup|||
-   |Buttons|RadioButton|||
-   |Buttons|ToggleButton|||
-   |Buttons|Swtich|||
-   |Buttons|FloatingActionButton|||
+   |분류|뷰 이름|특징|
+   |---|---|---|
+   |Buttons|Button|탭하거나 클릭하여 작업을 수행할 수 있는 Button, Java(혹은 Kotlin) 코드에서 setOnClickListener로 버튼 동작 정의 가능|
+   |Buttons|ImageButton|사용자가 탭하나 클릭할 수 있는 ImageButton|
+   |Buttons|ChipGroup|다수의 Chip을 관리하는 컴포넌트|
+   |Buttons|Chip|워드 혹은 카테고리, 요소, 타입 등을 표현 할 때 종종 타원형의 background에 그 텍스트를 표현하는 Button|
+   |Buttons|CheckBox|선택 또는 선택해제 할 수 있는 체크박스 유형의 상태 버튼|
+   |Buttons|RadioGroup|RadioButton들을 모은 set에서 하나의 옵션을 선택, 사용자가 사용 가능한 모든 옵션을 나란히 볼 필요가 있다고 생각되면 상호 배타적인 옵션 set에 RadioGroup을 사용|
+   |Buttons|RadioButton|원형으로 된 체크박스|
+   |Buttons|ToggleButton|두 상태 사이에서 설정을 변경, 누르기 전 후 버튼 안의 텍스트 변경|
+   |Buttons|Switch|텍스트 오른쪽에 스위치 생성, 스위치는 두 가지 옵션 중에서 선택할 수 있는 2-state-togglem,  드래그하여 옵션을 선택하거나 탭하여 확인한 것 처럼 toggle 기능|
+   |Buttons|FloatingActionButton|UI 위에 원형의 떠 있는 듯한 버튼, 버튼을 활용하여 특수 동작 기능 정의|
 * Widgets
-   |분류|뷰 이름|특징|용도|
-   |---|---|---|--|
-   |Widgets|View|||
-   |Widgets|ImageView|||
-   |Widgets|WebView|||
-   |Widgets|VideoView|||
-   |Widgets|CalendarView|||
-   |Widgets|ProgressBar|||
-   |Widgets|ProgressBar (Horizontal)|||
-   |Widgets|SeekBar|||
-   |Widgets|SeekBar (Discrete)|||
-   |Widgets|RatingBar|||
-   |Widgets|SearchView|||
-   |Widgets|TextureView|||
-   |Widgets|SurfaceView|||
-   |Widgets|Horizontal Divider|||
-   |Widgets|Vertical Divider|||
+   |분류|뷰 이름|특징|
+   |---|---|---|
+   |Widgets|View|Activity 내에서 공간을 설정, 그림 그리기 가능|
+   |Widgets|ImageView|View의 속성을 상속받아 공간 안에 사진을 표시|
+   |Widgets|WebView||View의 속성을 상속받아 특정한 URL과 연결된 뷰를 넣음, 각 OS별 내장된 웹 브라우저를 뷰 형태로 앱에서 표현|
+   |Widgets|VideoView|View의 속성을 상속받고 Activity에 동영상을 표시|
+   |Widgets|CalendarView|View의 속성을 상속받아 캘린더를 넣음, 탭과 클릭 이벤트로 날짜를 선택할 수 있으며 원하는 날짜로 달력을 스크롤하고 찾는 기능|
+   |Widgets|ProgressBar|진행 상황을 표시할 수 있는 원형의 컴포넌트|
+   |Widgets|ProgressBar (Horizontal)|수평으로 작업 진행률을 표시할 수 있는 컴포넌트, 왼쪽 끝에서부터 오른쪽으로 채워짐|
+   |Widgets|SeekBar|드래그 가능한 thumb을 추가하는 ProgressBar의 확장 위젯, 연속적인 실선 위를 움직이며 왼쪽 또는 오른쪽으로 끌거나 화살표 키를 사용하여 현재 진행률 수준을 설정|
+   |Widgets|SeekBar (Discrete)|불연속적으로 놓여있는 점 위를 움직이며 조절하는 컴포넌트|
+   |Widgets|RatingBar|별표로 등급 혹은 만족도를 표시하는 SeekBar 및 ProgressBar의 확장 위젯|
+   |Widgets|SearchView|검색어 입력 후 Search provider에게 검색을 요청할 수 있는 UI를 제공, 검색어 추천 리스트나 검색 결과 리스트를 보여주고 사용자는 해당 리스트에서 원하는 item을 선택하도록 정의|
+   |Widgets|TextureView|비디오나 openGL과 같은 콘텐츠 스트림을 표시|
+   |Widgets|SurfaceView|View 계층 구조에 포함된 형식과 크기의 제어가 가능한 전용 드로잉 표면을 제공|
+   |Widgets|Horizontal Divider|수평선|
+   |Widgets|Vertical Divider|수직선|
 * Layouts
-   |분류|뷰 이름|특징|용도|
-   |---|---|---|--|
+   |분류|뷰 이름|특징|
+   |---|---|---|
    |Layouts|ConstraintLayout|||
    |Layouts|LinearLayout (horizontal)|||
    |Layouts|LinearLayout (vertical)|||
@@ -160,31 +160,31 @@
    |Layouts|TableRow|||
    |Layouts|Space|||
 * Containers
-   |분류|뷰 이름|특징|용도|
-   |---|---|---|--|
-   |Containers|Spinner|||
-   |Containers|RecyclerView|||
-   |Containers|ScrollView|||
-   |Containers|HorizontalScrollView|||
-   |Containers|NestedScrollView|||
-   |Containers|ViewPager2|||
-   |Containers|CardView|||
-   |Containers|AppBarLayout|||
-   |Containers|BottomAppBar|||
-   |Containers|NavigationView|||
-   |Containers|BottomNavigationView|||
-   |Containers|Toolbar|||
-   |Containers|TabLayout|||
-   |Containers|Tabitem|||
-   |Containers|ViewStub|||
-   |Containers|&lt;include&gt;|||
-   |Containers|&lt;fragment&gt;|||
-   |Containers|NavHostFragment|||
-   |Containers|&lt;view&gt;|||
-   |Containers|&lt;requestFocus&gt;|||
+   |분류|뷰 이름|특징|
+   |---|---|---|
+   |Containers|Spinner|여러 개의 값 중 1개를 선택하는 위젯|
+   |Containers|RecyclerView|스크롤이 가능한 컨테이너에 여러 개의 뷰를 담아서 보여주는 ViewGroup. *ListView 보다 진보하고 유연해진 버전 (ListView는 100개의 item이 있다면 100개의 view를 일일이 다 생성하지만 RecyclerView는 화면에 보여지는 일정 갯수의 view객체만 생성하고 스크롤 할 때마다 화면 밖으로 나간 view의 정보를 ViewHolder에 저장시켜놓고 해당 view객체들을 재활용)*
+   |Containers|ScrollView|수직(위아래)으로 스크롤 하는 위젯, 하나의 위젯만 가능|
+   |Containers|HorizontalScrollView|수평(좌우)으로 스크롤 하는 위젯|
+   |Containers|NestedScrollView|한 화면에 여러개의 스크롤을 사용|
+   |Containers|ViewPager2|RecyclerView를 기반, ViewPager에서는 좌우 스크롤링만 가능, 상하 스크롤링 기능을 추가|
+   |Containers|CardView|FrameLayout 클래스를 확장, 둥근 모서리, 배경과 그림자가 추가된 FrameLayout|
+   |Containers|AppBarLayout|LinearLayout 머리티얼 디자인 앱 바 개념의 많은 기능, 즉 스크롤링 제스처를 구현하는 카테고리|
+   |Containers|BottomAppBar|.NET Framework를 "cradles"시키는 모양의 배경을 지원하는 툴바의 확장|
+   |Containers|NavigationView|앱의 표준 탐색 메뉴, 내용은 메뉴 리소스 파일로 정의|
+   |Containers|BottomNavigationView|NavigationView가 하단에 위치|
+   |Containers|Toolbar|응용 프로그램 콘텐츠 내에서 사용하기 위한 표준 도구 모음|
+   |Containers|TabLayout|탭을 표시하기 위한 가로 레이아웃|
+   |Containers|TabItem|TabLayout 레이아웃 내에서 탭 항목을 선언할 수 있는 특수한 뷰, TabLayout에 추가되지 않으며 탭 항목의 텍스트, 아이콘 및 사용자 정의 레이아웃을 정의|
+   |Containers|ViewStub|Runtime에 레이아웃 리소스를 느리게 확장하는데 사용할 수 있는 크기가 0인 보이지 않는 뷰|
+   |Containers|&lt;include&gt;|레이아웃에 재사용 가능한 컴포넌트 추가|
+   |Containers|&lt;fragment&gt;|FragmentActivity 내의 어떤 동작이나 UI 일부 그리고 액티비티의 모듈식 섹션. 여러 개의 Fragment를 하나의 Activity에 결합하여 창이 여러 개인 UI를 빌드, 하나의 Fragment를 여러 Activity에서 재사용할 수 있음. 자체적인 수명 주기를 가지고 자체 입력 이벤트를 수신, 액티비티 실행 중에 추가 및 삭제가 가능 (다른 액티비티에 재사용할 수 있는 "하위 액티비티"와 같은 개념")|
+   |Containers|NavHostFragment|자체 포함된 Navigation이 발생할 수 있도록 레이아웃 내에 영역을 제공|
+   |Containers|&lt;view&gt;|다른 view들을 포함하고 있거나 포함할 수 있는 View, 일반적으로 ViewGroup을 상속하면서 Layout이 아닌 클래스를 지칭|
+   |Containers|&lt;requestFocus&gt;|해당 View를 Focus|
 * Helpers
-   |분류|뷰 이름|특징|용도|
-   |---|---|---|--|
+   |분류|뷰 이름|특징|
+   |---|---|---|
    |Helpers|Group|||
    |Helpers|Barrier (Horizontal)|||
    |Helpers|Barrier (Vertical)|||
@@ -196,13 +196,13 @@
    |Helpers|ImageFilterButton|||
    |Helpers|MockView|||
 * Google
-   |분류|뷰 이름|특징|용도|
-   |---|---|---|--|
-   |Google|AdView|||
-   |Google|MapView|||
+   |분류|뷰 이름|특징|
+   |---|---|---|
+   |Google|AdView|View 배터 광고를 표시하는 API|
+   |Google|MapView|Google Map 서비스에서 얻은 데이터와 함께 지도를 표시하는 API|
 * Legacy
-   |분류|뷰 이름|특징|용도|
-   |---|---|---|--|
+   |분류|뷰 이름|특징|
+   |---|---|---|
    |Legacy|GridLayout|||
    |Legacy|ListView|||
    |Legacy|TabHost|||
