@@ -217,6 +217,8 @@
    * 규칙
 2. Relative Layout
    * 위젯 자신이 속한 레이아웃의 상하좌우의 위치를 지정하여 배치
+   * 특징
+     * 중첩된 ViewGroup을 없애고 레이아웃 계층 구조를 평면으로 유지하여 성능을 개선, UI 설계에 매우 유용
 3. Constraint Layout
    * 평평한 구조를 가진 Layout. View에 대한 제약조건(Constraint)을 적용하여 각 뷰의 위치와 크기를 유연하게 조절. 복잡한 레이아웃을 깊은 계층을 가지지 않고 배치
    * 특징
@@ -238,11 +240,6 @@
       4. 여백
       5. 제약조건 편향 제어
       6. 제약조건 목록에서 개별 제약조건을 강조 가능
-   * ```Java
-      java.lang.Object
-         ViewGroup
-            androidx.constraintlayout.widget.ConstraintLayout
-      ```
 4. Frame Layout
    * 위젯을 왼쪽 위에 일률적으로 겹쳐서 배치하여 중복되어 보이는 효과를 냄. 여러 개의 위젯을 배치한 후 상황에 따라서 필요한 위젯을 보이는 방식에 주로 활용
 5. Table Layout
