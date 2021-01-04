@@ -1,20 +1,89 @@
 # Assignment of Week1
 ## 1. Manifest
 > 본인의 기준으로 우선순위를 정하고 documentation 조사
-* 역할
-  * 앱의 구성 요소 선언 : Android System이 앱 구성 요소를 시작하려면 시스템은 우선 앱의 매니패스트파일인 AndroidManifest.xml을 읽어서 해당 구성 요소가 존재하는지 확인합니다. 앱은 이 파일 안에 모든 구성 요소를 선언해야 합니다. 주요 작업!
-  * 앱이 요구하는 모든 사용자 권한 식별 (인터넷 액세스, 연락처 읽기 액세스 등)
-  * 앱이 어느 API를 사용하는지를 근거로 앱에서 요구하는 최소 API 레벨을 선언
-  * 앱에서 사용하거나 요구하는 하드웨어 및 소프트웨어 기능 선언 (카메라, 블루투스, 멀티터치 화면 등)
-  * 앱이 링크되어야 하는 API라이브러리 선언 (Google Maps 라이브러리 등, Android 프레임워크 API는 제외)
-* 기준 선정
-  * 필수
-    * manifest, application
-      * 두 요소는 각각 한 번만 실행 되어야 합니다.
-      |tag name|---|---|---|
-      |---|---|---|---|
-    * |&lt;action&gt;|||
-    * 
+### 역할
+1. **앱 구성 요소 선언 (주요 역할) :**
+   * Android System은 Activity, Service, BroadcastReceiver, ContentProvider와 같은 앱 구성 요소를 시작하기 위해 AndroidManifest.xml 파일을 읽어 해당 구성 요소가 존재하는지 확인합니다.
+   * 따라서, 앱은 이 파일 안에 모든 구성 요소를 선언해야 합니다.
+2. 모든 사용자 권한 식별 :
+   * 앱이 요구하는 모든 권한 식별 (인터넷 액세스, 연락처 읽기 액세스 등)
+3. 최소 API 선언 :
+   * 앱이 어느 API를 사용하는지를 근거로 앱에서 요구하는 최소 API 레벨을 선언
+4. HW/SW 기능 선언 :
+   * 앱에서 사용하거나 요구하는 하드웨어 및 소프트웨어 기능 선언 (카메라, 블루투스, 멀티터치 화면 등)
+5. API 라이브러리 선언 :
+   * 앱이 링크되어야 하는 API라이브러리 선언 (Google Maps 라이브러리 등, Android 프레임워크 API는 제외)
+### 앱 구성 요소 선언
+ * &lt;activity&gt;
+ * &lt;service&gt;
+ * &lt;receiver&gt;
+ * &lt;provider&gt;
+### AndroidManifest.xml 주요 요소
+1. &lt;manifest&gt; (필수, 유일)
+   * AndroidManifest.xml 파일의 양 끝을 감싸는 루트 태그
+   * 속성
+     - 앱의 package name과 version 정보를 정의
+2. &lt;application&gt; (필수, 유일)
+   * application 태그 안에 컴포넌트 정보 및 앱에 대한 각종 정보를 정의
+   * 속성
+     - `android:label` : 앱의 label(제목) 정의
+     - `android:icon` : 엡의 icon을 정의
+3. &lt;activity&gt;
+   * 포함된 위치
+     - `<application>`
+   * 포함 가능한 항목
+     - `<intent-filter>, <meta-data>, <layout>`
+   * 4대 컴포넌트 중에 Activity를 정의
+   * 주요 속성
+     - `android:name` : Activity class name 정의
+     - `android:label` : Activity icon 재정의
+     - `android:icon` : Activity label(제목)
+4. &lt;intent-filter&gt;
+   * 해당 컴포넌트가 어떤 암시적 intent를 처리하는지 정의
+   * 포함된 위치
+     - `<activity>`
+     - `<activity-alias>`
+     - `<service>`
+     - `<receiver>`
+   * 포함 필수 항목
+     - `<action>` : 작업 처리 정의
+   * 포함 가능한 항목
+     - `<category>` : 컴포넌트 유형 정의
+     - `<data>` : 컴포넌트 유형 정의
+   * 속성
+     - `android:label` : Intent icon 재정의
+     - `android:icon` : Intent label(제목)
+     - `android:priority` : Intent 우선순위 부여
+5. &lt;service&gt;
+   * Service 컴포넌트를 정의 (UI없는 백그라운드 작업 등 구현)
+   * 포함된 위치
+     - `<application>`
+   * 포함 가능한 항목
+     - `<intent-filter>, <meta-data>`
+   * 속성
+     - `android:name` : Service class name 정의
+     - `android:label` : Service icon 재정의
+     - `android:icon` : Service label(제목)
+6. &lt;receiver&gt;
+   * BroadcastReceiver 컴포넌트를 정의(앱 실행되고 있지 않을 때도 시스템이나 다른 앱에서 브로드캐스팅하는 인텐트를 앱에서 수신 가능)
+   * 포함된 위치
+     - `<application>`
+   * 포함 가능한 항목
+     - `<intent-filter>, <meta-data>`
+   * 속성
+     - `android:name` : BroadcastReceiver class name 정의
+     - `android:label` : BroadcastReceiver icon 재정의
+     - `android:icon` : BroadcastReceiver label(제목)
+7. &lt;provider&gt;
+   * ContentProvider 컴포넌트를 정의 (앱에서 관리되는 데이터를 인식)
+   * 포함된 위치
+     - `<application>`
+   * 포함 가능한 항목
+     - `<meta-data>, <grant-uri-permissions>, <path-permission>`
+   * 속성
+     - `android:name` : ContentProvider class name 정의
+     - `android:label` : ContentProvider icon 재정의
+     - `android:icon` : ContentProvider label(제목)
 ## 2. Palette
 > *Fragment 조사는 선택 사항
 * View와 ViewGroup
