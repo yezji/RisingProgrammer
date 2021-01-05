@@ -252,4 +252,4 @@
 * [PaymentLayout code link](https://github.com/yezji/RisingProgrammer/tree/main/Week1/PaymentLayout)
 * |result|reference|
   |------|---------|
-   <img src="./week1_result.jpg" width="50%">|<img src="./week1_reference.jpg" width="50%">|
+   <img src="./week1_result.jpg" width="100%">|<img src="./week1_reference.jpg" width="100%">|
