@@ -226,7 +226,11 @@
    * 규칙
      * 가로와 세로 하나씩 두 개 이상의 제약조건이 필요
    * 크기 조정 방법
-      ![layout_editor](https://developer.android.com/images/training/constraint-layout/constraint-layout-editor-attributes-2x.png){:width="50%" height="50%"}
+      <div align=center>
+         <img src="https://developer.android.com/images/training/constraint-layout/constraint-layout-editor-attributes-2x.png" width="50%" height="50%">
+         <p>(출처 : android documentation)</p>
+      </div>
+
       1. 크기를 비율로 설정 (toggle aspect ratio constraint)
          * 너비:높이 입력
       2. 제약조건 삭제
@@ -250,6 +254,6 @@
 ## 4. Layout 화면 구축
 > 3번의 Layout 전부 활용하여 실제 Product 수준의 화면 구축
 * [PaymentLayout code link](https://github.com/yezji/RisingProgrammer/tree/main/Week1/PaymentLayout)
-* |result|reference|
+  |result|reference|
   |------|---------|
-   <img src="./week1_result.jpg" width="100%">|<img src="./week1_reference.jpg" width="100%">|
+   |<img src="./week1_result.jpg" width="100%">|<img src="./week1_reference.jpg" width="100%">|
