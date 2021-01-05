@@ -250,4 +250,6 @@
 ## 4. Layout 화면 구축
 > 3번의 Layout 전부 활용하여 실제 Product 수준의 화면 구축
 * [PaymentLayout link](https://github.com/yezji/RisingProgrammer/tree/main/Week1/PaymentLayout)
-* reference layout ![reference layout](./week1_reference.jpg){:width="40% height="40%"}
+* |result|reference|
+  |------|---------|
+   <img src="./week1_result.jpg" width="50%">|<img src="./week1_reference.jpg" width="50%">|
