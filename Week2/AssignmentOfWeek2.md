@@ -1,6 +1,13 @@
 # Assignment of Week2
 
-[TOC]
+<!-- TOC -->
+
+- [Assignment of Week2](#assignment-of-week2)
+  - [Activity LifeCycle, Intent](#activity-lifecycle-intent)
+    - [MusicApp](#musicapp)
+    - [Result](#result)
+
+<!-- /TOC -->
 
 ## Activity LifeCycle, Intent
 > Activity LifeCycle, Intent를 모두 활용해서 앱 만들기 (화면 전환 및 데이터 주고받기 포함)
