@@ -56,6 +56,27 @@
 * Life Cycle
   * 상태에 따른 기능을 정의
     * 적용하고 싶은 해당 시점에 기능을 작성할 수 있다.
+  * 순서
+    * onCreate() -> onStart(): 생성
+    * onStart() -> onResume(): 생성
+    * onResume() -> onPause(): 알림이나 다이얼로그가 뜨고 뒤에 흐릿하게 원래 액티비티가 보일 때, 상태 저장
+    * onResume() -> onStop(): 현재 액티비티가 포커스를 잃고 완전히 다른 액티비티에 가려졌을 때
+    * onPause() -> onResume(): 알림이나 다이얼로그를 끄고 다시 돌아왔을 때, 상태 복구
+    * onPause() -> onStop(): 아예 액티비티가 포커스를 잃고 화면에서 보이지 않을 때
+    * onStop() -> onRestart(): 포커스를 잃고 가려졌었지만 다시 불려졌을 때
+    * onStop() -> onDestroy(): 완전히 액티비티가 종료되었을 때
+
+```mermaid
+graph LR
+	onCreate --> onStart
+	onStart --> onResume
+	onResume --> onPause
+	onPause --> onResume
+	onPause --> onStop
+	onStop --> onRestart
+	onRestart --> onStart
+	onStop --> onDestroy
+```
 
 ### Intent
 * 명시적 인텐트
