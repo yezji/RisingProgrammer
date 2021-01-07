@@ -10,9 +10,11 @@
 
     <color name="transparent">#00000000</color>
     <color name="melon_signature">#FF00BA21</color>
-    <color name="tag_white">#66FFFFFF</color>
+    <color name="light_gray">#FFA9A9A9</color>
+    <color name="tag_white">#DDFFFFFF</color>
 
     <!-- chart -->
     <color name="badge_dj">#FFF78D63</color>
+    <color name="background_light_green">#FFF6FBF7</color>
 
 </resources>

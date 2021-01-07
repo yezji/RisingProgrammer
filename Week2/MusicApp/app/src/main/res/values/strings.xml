@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">MusicApp</string>
-    <string name="title_activity_dj_collection">dj_collection</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
@@ -21,7 +20,7 @@
 
     <string name="badge_dj">DJ</string>
     <string name="nickname_dj">음악이주는힘</string>
-    <string name="btn_heart_value">13</string>
+    <string name="btn_like_value">13</string>
 
     <!-- tab names -->
     <string name="chart_top_tab_1">수록곡</string>
