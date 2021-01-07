@@ -1,18 +1,18 @@
 package com.green.musicapp
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        Toast.makeText(this, "MainActivity.onCreate()", Toast.LENGTH_SHORT).show()
+        setContentView(R.layout.activity_chart)
 
-        val intent = Intent(this, DjCollectionActivity::class.java)
-        startActivity(intent)
+        Toast.makeText(this, "MainActivity.onCreate()", Toast.LENGTH_SHORT).show()
     }
 
     override fun onRestart() {

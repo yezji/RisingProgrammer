@@ -1,9 +1,39 @@
 <resources>
     <string name="app_name">MusicApp</string>
-    <string name="title_activity_dj_collection">DjCollectionActivity</string>
+    <string name="title_activity_dj_collection">dj_collection</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
     -->
-    <string name="hello_world">Hello Square World!</string>
+    <string name="chart_top_title">작업할 때 잔잔히 틀어놓기 좋은 JAZZ</string>
+
+    <!-- hash tags -->
+    <string name="chart_top_hashtag_1">#재즈</string>
+    <string name="chart_top_hashtag_2">#재택근무</string>
+    <string name="chart_top_hashtag_3">#영감</string>
+    <string name="chart_top_hashtag_4">#작업</string>
+    <string name="chart_top_hashtag_5">#취미</string>
+    <string name="chart_top_hashtag_6">#혼자만의시간</string>
+    <string name="chart_top_hashtag_7">#집콕</string>
+    <string name="chart_top_hashtag_8">#카페</string>
+    <string name="chart_top_hashtag_9">#커피</string>
+    <string name="chart_top_hashtag_10">#힐링</string>
+
+    <string name="badge_dj">DJ</string>
+    <string name="nickname_dj">음악이주는힘</string>
+    <string name="btn_heart_value">13</string>
+
+    <!-- tab names -->
+    <string name="chart_top_tab_1">수록곡</string>
+    <string name="chart_top_tab_2">연관 콘텐츠</string>
+    <string name="chart_top_tab_3">상세정보</string>
+    <string name="chart_top_tab_4">댓글</string>
+
+    <!-- buttons of chart -->
+    <string name="play_btn_select_all">전체선택</string>
+    <string name="play_btn_shuffle">셔플재생</string>
+    <string name="play_btn_play_all">전체재생</string>
+
+    <!-- bottom mini play bar -->
+    <string name="mini_bar_now_playing_song">곡 목록이 없습니다.</string>
 </resources>
