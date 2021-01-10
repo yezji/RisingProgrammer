@@ -5,10 +5,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-//@Database(entities = [User::class, ItemSongOfChart::class], version = 1, exportSchema = false)
+//@Database(entities = [User::class, SongOfChart::class], version = 1, exportSchema = false)
 @Database(entities = [User::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao():UserDao
+//    abstract fun songDao():SongOfChartDao
+//    abstract fun playlistDao():PlaylistDao
 
     // 어디서든 접근가능하고, 중복생성되지 않게 싱글톤
     companion object {

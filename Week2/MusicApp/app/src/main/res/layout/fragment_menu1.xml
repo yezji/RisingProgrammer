@@ -3,12 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Menu1Fragment"
-    android:background="#FF00E5">
+    tools:context=".Menu1Fragment">
 
     <TextView
         android:id="@+id/tvHome"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:background="#D48FFF"
+        android:text="this is home fragment"
+        android:layout_gravity="center"/>
 
 </FrameLayout>

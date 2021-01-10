@@ -3,12 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Menu4Fragment"
-    android:background="#00FFB7">
+    tools:context=".Menu4Fragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:background="#00FFB7"
+        android:text="this is home fragment"
+        android:layout_gravity="center"/>
 
 </FrameLayout>

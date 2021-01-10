@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 // list를 RecyclerView에 바인딩(=데이터 갱신)하기 위한 사전 작업
 class ChartAdapter : RecyclerView.Adapter<SongHolder>() {
     // 사용할 데이터를 초기화
-    var listData = mutableListOf<ItemSongOfChart>()
+    var listData = mutableListOf<SongOfChart>()
     
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_chart_song, parent, false)
@@ -39,7 +39,7 @@ class SongHolder(itemView:View) : RecyclerView.ViewHolder(itemView) {
     }*/
 
     // item_chart_song.xml의 id에 직접 값을 설정
-    fun setSong(song:ItemSongOfChart) {
+    fun setSong(song:SongOfChart) {
         itemView.findViewById<ImageView>(R.id.ivAlbumOfSong).setImageResource(song.album)
         itemView.findViewById<TextView>(R.id.tvNameInChartOfSong).setText(song.title)
         itemView.findViewById<TextView>(R.id.tvArtistInChartOfSong).setText(song.artist)

@@ -12,43 +12,125 @@
         android:layout_height="0dp"
 
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        app:layout_constraintBottom_toTopOf="@id/bottomPlayBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomPlayBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation">
 
-    <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/background_light_gray"
 
-        <LinearLayout
-            android:layout_width="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/btnPlayBarList"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/btn_playbar_playlist"
+            android:scaleType="centerInside"
+
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvPlayBarNowTitle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="allalallalalal"/>
-        </LinearLayout>
+            android:text="@string/mini_bar_now_playing_song"
+            android:textColor="@color/black"
+            android:singleLine="true"
 
-    </ScrollView>
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+
+            app:layout_constraintStart_toEndOf="@id/btnPlayBarList"
+            app:layout_constraintEnd_toStartOf="@id/btnPlayBarPrevious"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:id="@+id/tvPlayBarNowArtist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:text="@string/mini_bar_now_playing_song"
+            android:textSize="@dimen/btn_hashtag_12"
+            android:singleLine="true"
+
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+
+            app:layout_constraintStart_toEndOf="@id/btnPlayBarList"
+            app:layout_constraintEnd_toStartOf="@id/btnPlayBarPrevious"
+            app:layout_constraintTop_toTopOf="@id/tvPlayBarNowTitle"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/btnPlayBarPrevious"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/btn_playbar_previous_active"
+            android:scaleType="centerInside"
+
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+
+            app:layout_constraintEnd_toStartOf="@id/btnPlayBarStart"
+            app:layout_constraintTop_toTopOf="@id/btnPlayBarList"
+            app:layout_constraintBottom_toBottomOf="@id/btnPlayBarList"/>
+
+        <ToggleButton
+            android:id="@+id/btnPlayBarStart"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/btn_play_bar_toggle"
+            android:scaleType="centerInside"
+            android:textOn=""
+            android:textOff=""
+
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+
+            app:layout_constraintEnd_toStartOf="@id/btnPlayBarNext"
+            app:layout_constraintTop_toTopOf="@id/btnPlayBarList"
+            app:layout_constraintBottom_toBottomOf="@id/btnPlayBarList"/>
+
+        <ImageButton
+            android:id="@+id/btnPlayBarNext"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/btn_playbar_next_active"
+            android:scaleType="centerInside"
+
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnPlayBarList"
+            app:layout_constraintBottom_toBottomOf="@id/btnPlayBarList"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

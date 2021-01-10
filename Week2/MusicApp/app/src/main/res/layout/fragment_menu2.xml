@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Menu2Fragment"
-    android:background="#FFDD00">
+    tools:context=".Menu2Fragment">
+
+    <include
+        layout="@layout/activity_chart"/>
 
 </FrameLayout>
