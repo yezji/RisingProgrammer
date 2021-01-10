@@ -2,27 +2,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:state_checked="true"
-        android:id="@+id/page_1_home"
+        android:id="@+id/menu_1_home"
         android:enabled="true"
         android:icon="@drawable/bottomnav_01"
         android:title="1_home"/>
     <item
-        android:id="@+id/page_2_chart"
+        android:id="@+id/menu_2_chart"
         android:enabled="true"
         android:icon="@drawable/bottomnav_02"
         android:title="2_chart"/>
     <item
-        android:id="@+id/page_3_cast"
+        android:id="@+id/menu_3_cast"
         android:enabled="true"
         android:icon="@drawable/bottomnav_03"
         android:title="3_cast"/>
     <item
-        android:id="@+id/page_4_search"
+        android:id="@+id/menu_4_search"
         android:enabled="true"
         android:icon="@drawable/bottomnav_04"
         android:title="4_search"/>
     <item
-        android:id="@+id/page_5_drawer"
+        android:id="@+id/menu_5_drawer"
         android:enabled="true"
         android:icon="@drawable/bottomnav_05"
         android:title="5_drawer"/>

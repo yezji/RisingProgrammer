@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivLogo"
+                    android:layout_width="220dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="90dp"
+                    android:scaleType="fitCenter"
+
+                    android:src="@drawable/img_logo"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvFindId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="아이디 찾기"
+                    android:layout_marginRight="10dp"
+
+                    android:textSize="12sp"
+                    app:layout_constraintTop_toTopOf="@id/tvVerticalBar"
+                    app:layout_constraintEnd_toStartOf="@id/tvVerticalBar"/>
+
+                <TextView
+                    android:id="@+id/tvVerticalBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="|"
+                    android:textColor="@color/song_selected_gray"
+
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toStartOf="@id/tvFindPw"
+                    app:layout_constraintTop_toBottomOf="@id/ivLogo" />
+
+                <TextView
+                    android:id="@+id/tvFindPw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginEnd="20dp"
+                    android:text="비밀번호 찾기"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tvVerticalBar" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etLoginId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/btn_login_edittext"
+                    android:hint="아이디"
+                    android:inputType="textVisiblePassword"
+
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="10dp"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvVerticalBar" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etLoginPw"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    android:hint="비밀번호"
+                    android:inputType="textPassword"
+
+                    android:background="@drawable/btn_login_edittext"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+
+                    app:layout_constraintEnd_toEndOf="@+id/etLoginId"
+                    app:layout_constraintStart_toStartOf="@id/etLoginId"
+                    app:layout_constraintTop_toBottomOf="@id/etLoginId" />
+
+                    <android.widget.Button
+                    android:id="@+id/btnLogin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btn_login_login"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="로그인"
+                    android:textColor="@color/white"
+
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@id/etLoginId"
+                    app:layout_constraintStart_toStartOf="@id/etLoginId"
+                    app:layout_constraintTop_toBottomOf="@id/etLoginPw" />
+
+
+                <TextView
+                    android:id="@+id/tvRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:text="회원이 아니세요?"
+                    android:textColor="@color/black"
+
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnLogin" />
+
+
+                <android.widget.Button
+                    android:id="@+id/btnGoRegister"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="90dp"
+                    android:background="@drawable/btn_login_register_available"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="회원가입"
+                    android:textColor="@color/melon_signature"
+                    android:textSize="16sp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/etLoginId"
+                    app:layout_constraintStart_toStartOf="@id/etLoginId"
+                    app:layout_constraintTop_toBottomOf="@id/tvRegister" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -10,6 +10,7 @@
 
     <color name="transparent">#00000000</color>
     <color name="melon_signature">#FF00BA21</color>
+    <color name="melon_darker">#4CAF50</color>
     <color name="light_gray">#FFA9A9A9</color>
     <color name="tag_white">#33FFFFFF</color>
 
