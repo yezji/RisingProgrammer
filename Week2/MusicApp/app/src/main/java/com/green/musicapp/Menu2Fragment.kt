@@ -35,8 +35,8 @@ class Menu2Fragment : Fragment() {
             val albumRid:Int = view.resources.getIdentifier("img_album_$idx", "drawable", view.context.packageName)
             val nameRid:Int = view.resources.getIdentifier("chart_song_name_$idx", "string", view.context.packageName)
             val artistRid:Int = view.resources.getIdentifier("chart_song_artist_$idx", "string", view.context.packageName)
-
-            data.add(SongOfChart(albumRid, nameRid, artistRid))
+            val musicRid:Int = view.resources.getIdentifier("sound_$idx", "raw", view.context.packageName)
+            data.add(SongOfChart(albumRid, nameRid, artistRid, musicRid))
         }
 
         return data

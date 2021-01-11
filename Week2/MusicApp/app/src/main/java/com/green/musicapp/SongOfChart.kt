@@ -16,5 +16,6 @@ import androidx.room.*
 data class SongOfChart(
     var album:Int,
     var title:Int,
-    var artist:Int
+    var artist:Int,
+    var music:Int
 )
