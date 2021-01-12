@@ -20,7 +20,7 @@ import android.os.Debug as Debug1
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     private val TAG:String = "MainActivity"
-    val showToast:Boolean = true
+    val showToast:Boolean = false
     var musicIndex = 1
 
     // Activity에서 바인드할 Service의 레퍼런스를 저장할 변수
