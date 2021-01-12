@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_song"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvAlbumOfSong"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+
+        app:cardCornerRadius="5dp"
+
+        android:layout_margin="10dp"
+
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/ivAlbumOfSong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_album_1" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvNameInChartOfSong"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/chart_song_name_1"
+        android:textColor="@color/black"
+        android:maxLines="1"
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+
+        app:layout_constraintBottom_toTopOf="@id/tvArtistInChartOfSong"
+        app:layout_constraintEnd_toStartOf="@id/ibPlayChartOfSong"
+        app:layout_constraintStart_toEndOf="@id/cvAlbumOfSong"
+        app:layout_constraintTop_toTopOf="@+id/cvAlbumOfSong" />
+
+    <TextView
+        android:id="@+id/tvArtistInChartOfSong"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/chart_song_artist_1"
+        android:textSize="12dp"
+        android:maxLines="1"
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/cvAlbumOfSong"
+        app:layout_constraintEnd_toStartOf="@id/ibPlayChartOfSong"
+        app:layout_constraintStart_toEndOf="@+id/cvAlbumOfSong"
+        app:layout_constraintTop_toBottomOf="@id/tvNameInChartOfSong"/>
+
+    <ImageButton
+        android:id="@+id/ibPlayChartOfSong"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/btn_chart_playsong"
+        android:scaleType="centerCrop"
+        android:background="@color/transparent"
+
+        android:layout_margin="10dp"
+
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ibMoreChartOfSong"/>
+    <ImageButton
+        android:id="@+id/ibMoreChartOfSong"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/btn_more"
+        android:scaleType="centerCrop"
+        android:background="@color/transparent"
+
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
