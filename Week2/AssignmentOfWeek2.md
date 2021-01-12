@@ -87,7 +87,7 @@
 
 ### Result
 
-* [MusicApp code link](,,,)
+* [MusicApp code link](https://github.com/yezji/RisingProgrammer/tree/main/Week2/MusicApp)
 
 | activity name || result                                      | reference                                                  |
 | ------------------------------------------- | ------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
