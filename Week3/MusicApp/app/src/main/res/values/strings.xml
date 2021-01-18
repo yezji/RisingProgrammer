@@ -34,44 +34,8 @@
     <string name="play_btn_play_all">전체재생</string>
 
     <!-- song in charts -->
-    <string name="chart_song_name_1">When You Wish Upon A Star (From Walt Disney\'s "Pinocchio") (Inst.)</string>
-    <string name="chart_song_artist_1">Dave Brubeck</string>
-    <string name="chart_song_name_2">There Will Never Be Another You</string>
-    <string name="chart_song_artist_2">Chet Baker</string>
-    <string name="chart_song_name_3">You Do Something To Me (2011 Remastered)</string>
-    <string name="chart_song_artist_3">Frank Sinatra</string>
-    <string name="chart_song_name_4">Sweet Sue</string>
-    <string name="chart_song_artist_4">Teddy Wilson</string>
-    <string name="chart_song_name_5">Ain\'t Misbehavin\'</string>
-    <string name="chart_song_artist_5">Hank Jones</string>
-    <string name="chart_song_name_6">I\'m In The Mood For Love</string>
-    <string name="chart_song_artist_6">Doris Day</string>
-    <string name="chart_song_name_7">Alice In Wonderland</string>
-    <string name="chart_song_artist_7">Paul Desmond, Dave Brubeck</string>
-    <string name="chart_song_name_8">But Not for Me</string>
-    <string name="chart_song_artist_8">Chet Baker</string>
-    <string name="chart_song_name_9">Out Of Nowhere</string>
-    <string name="chart_song_artist_9">Art Tatum</string>
-    <string name="chart_song_name_10">A Stairway To The Stars</string>
-    <string name="chart_song_artist_10">Erroll Garner</string>
-    <string name="chart_song_name_11">Our Love Is Here To Stay</string>
-    <string name="chart_song_artist_11">Count Basie, Joe Williams</string>
-    <string name="chart_song_name_12">Stardust</string>
-    <string name="chart_song_artist_12">Paul Desmond, Dave Brubeck</string>
-    <string name="chart_song_name_13">What Can I Say After I Say I\'m Sorry?</string>
-    <string name="chart_song_artist_13">John Pizzarelli</string>
-    <string name="chart_song_name_14">York Town Girl</string>
-    <string name="chart_song_artist_14">Eddie Higgins Trio</string>
-    <string name="chart_song_name_15">Do It The Hard Way</string>
-    <string name="chart_song_artist_15">Chet Baker</string>
-    <string name="chart_song_name_16">It\'s Not For Me To Say</string>
-    <string name="chart_song_artist_16">Johnny Mathis</string>
-    <string name="chart_song_name_17">Bewitched, Bothered, And Bewildered</string>
-    <string name="chart_song_artist_17">Ella Fitzgerald</string>
-    <string name="chart_song_name_18">Weather Bird</string>
-    <string name="chart_song_artist_18">Louis Armstrong, Earl Hines</string>
-    <string name="chart_song_name_19">Chit Chat (Remastered)</string>
-    <string name="chart_song_artist_19">Marco Rizo</string>
+    <string name="chart_song_name">chart_song_name</string>
+    <string name="chart_song_artist">chart_song_artist</string>
 
     <!-- bottom mini play bar -->
     <string name="mini_bar_now_playing_song">곡 목록이 없습니다.</string>

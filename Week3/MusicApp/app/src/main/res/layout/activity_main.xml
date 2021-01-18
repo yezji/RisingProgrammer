@@ -36,7 +36,7 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
         <ImageButton
-            android:id="@+id/btnPlayBarList"
+            android:id="@+id/btnSong"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:background="@drawable/btn_playbar_playlist"
@@ -65,7 +65,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
 
-            app:layout_constraintStart_toEndOf="@id/btnPlayBarList"
+            app:layout_constraintStart_toEndOf="@id/btnSong"
             app:layout_constraintEnd_toStartOf="@id/btnPlayBarPrevious"
             app:layout_constraintTop_toTopOf="parent"/>
         <TextView
@@ -82,7 +82,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
 
-            app:layout_constraintStart_toEndOf="@id/btnPlayBarList"
+            app:layout_constraintStart_toEndOf="@id/btnSong"
             app:layout_constraintEnd_toStartOf="@id/btnPlayBarPrevious"
             app:layout_constraintTop_toTopOf="@id/tvPlayBarNowTitle"
             app:layout_constraintBottom_toBottomOf="parent"/>
@@ -98,8 +98,8 @@
             android:layout_marginEnd="20dp"
 
             app:layout_constraintEnd_toStartOf="@id/btnPlayBarStart"
-            app:layout_constraintTop_toTopOf="@id/btnPlayBarList"
-            app:layout_constraintBottom_toBottomOf="@id/btnPlayBarList"/>
+            app:layout_constraintTop_toTopOf="@id/btnSong"
+            app:layout_constraintBottom_toBottomOf="@id/btnSong"/>
 
         <ToggleButton
             android:id="@+id/btnPlayBarStart"
@@ -114,8 +114,8 @@
             android:layout_marginEnd="20dp"
 
             app:layout_constraintEnd_toStartOf="@id/btnPlayBarNext"
-            app:layout_constraintTop_toTopOf="@id/btnPlayBarList"
-            app:layout_constraintBottom_toBottomOf="@id/btnPlayBarList"/>
+            app:layout_constraintTop_toTopOf="@id/btnSong"
+            app:layout_constraintBottom_toBottomOf="@id/btnSong"/>
 
         <ImageButton
             android:id="@+id/btnPlayBarNext"
@@ -128,8 +128,8 @@
             android:layout_marginStart="20dp"
 
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/btnPlayBarList"
-            app:layout_constraintBottom_toBottomOf="@id/btnPlayBarList"/>
+            app:layout_constraintTop_toTopOf="@id/btnSong"
+            app:layout_constraintBottom_toBottomOf="@id/btnSong"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

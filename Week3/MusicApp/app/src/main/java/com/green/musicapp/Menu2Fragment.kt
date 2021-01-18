@@ -1,124 +1,159 @@
 package com.green.musicapp
 
-import android.content.Context
 import android.os.Bundle
+import android.util.Log
+import android.util.SparseBooleanArray
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.*
 
 class Menu2Fragment : Fragment() {
     private val TAG:String = "Menu2Fragment"
-    val showToast:Boolean = false
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        // TODO : Fragment가 Activity가 연결될 때
-        if (showToast) Toast.makeText(activity, "$TAG.onAttach()", Toast.LENGTH_SHORT).show()
-    }
+    private var firebaseAuth: FirebaseAuth? = null
+    private var firebaseUser: FirebaseUser? = null
+    private lateinit var database: FirebaseDatabase
+    private lateinit var databaseRef: DatabaseReference
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        // TODO : Fragment 처음 생성 시
-        //  -> Activity와 마찬가지로 레이아웃 등 리소스 초기화 처리
-        super.onCreate(savedInstanceState)
-        if (showToast) Toast.makeText(activity, "$TAG.onCreate()", Toast.LENGTH_SHORT).show()
-    }
+    private var songList:MutableList<Song> = mutableListOf()
+    private var selectedList: SparseBooleanArray = SparseBooleanArray()
+    private var hashtagList:MutableList<String> = mutableListOf()
 
-    fun loadData(view:View) : MutableList<SongOfChart> {
-        val data:MutableList<SongOfChart> = mutableListOf()
+    lateinit var rv:RecyclerView
+    lateinit var adapter:ChartAdapter
+    lateinit var btnAddToPlaylist:Button
 
-        // TODO : rid 인것을 db걸로 바꾸기
-        for (idx in 1..19) {
-            val albumRid:Int = view.resources.getIdentifier("img_album_$idx", "drawable", view.context.packageName)
-            val nameRid:Int = view.resources.getIdentifier("chart_song_name_$idx", "string", view.context.packageName)
-            val artistRid:Int = view.resources.getIdentifier("chart_song_artist_$idx", "string", view.context.packageName)
-            val musicRid:Int = view.resources.getIdentifier("sound_$idx", "raw", view.context.packageName)
-            data.add(SongOfChart(albumRid, nameRid, artistRid, musicRid))
+    private var callbackListener:ClickCallbackListener = object : ClickCallbackListener {
+        override lateinit var selectedList: SparseBooleanArray
+
+        override fun callBack(pos: Int, selectedList:SparseBooleanArray) {
+//            Toast.makeText(view!!.context, "$pos 번째 아이템을 클릭했습니다.", Toast.LENGTH_SHORT).show()
+            this.selectedList = selectedList
         }
 
-        return data
     }
+
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
         val view:View = inflater.inflate(R.layout.fragment_menu2, container, false)
-        // Inflate the layout for this fragment
-        // TODO : Fragment의 layout을 inflate하여 View 생성
-        //  -> Fragment의 화면 전환, Fragment layout 처리
-        if (showToast) Toast.makeText(activity, "$TAG.onCreateView()", Toast.LENGTH_SHORT).show()
+
+        btnAddToPlaylist = view.findViewById(R.id.btnAddToPlaylist)
 
 
-        // 1. 데이터 로딩
-        val data = loadData(view)
-        // 2. 어댑터 생성
-        val adapter = ChartAdapter()
-        // 3. 어댑터에 데이터 전달
-        adapter.listData = data
-        // 4. 화면에 있는 리사이클러뷰에 어댑터 연결
-        val rv:RecyclerView = view.findViewById(R.id.rvChartList)
-        rv.adapter = adapter
-        // 5. 레이아웃 매니저 연결
+        // 어댑터 생성
+        adapter = ChartAdapter(view.context, songList)
+
+        // 리사이클러뷰 생성
+        rv = view.findViewById(R.id.rvChartList)
+        rv.setHasFixedSize(true)
+
+        // 레이아웃 매니저 연결
         rv.layoutManager = LinearLayoutManager(activity)
+        // 기본 구분선 추가
+        var dividerItemDecoration:DividerItemDecoration = DividerItemDecoration(rv.context, LinearLayoutManager(activity).orientation)
+        rv.addItemDecoration(dividerItemDecoration)
+
+
+        firebaseAuth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance()
+        databaseRef = database!!.getReference("song_of_chart")
+
+        // 데이터 로딩
+        databaseRef.addListenerForSingleValueEvent(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                songList.clear()
+                for (data in snapshot.children) {
+                    var song = data.getValue(Song::class.java)
+                    songList.add(song!!)
+                }
+                adapter.notifyDataSetChanged() // 리스트 저장 및 새로고침
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // db를 가져오던 중 에러 발생 시
+                Log.e(TAG, "DB를 가져오던 중 에러가 발생했습니다." + error.toException().toString())
+            }
+        })
+
+        // 리사이클러뷰에 어댑터 연결
+        adapter.setCallbackListener(callbackListener)
+        rv.adapter = adapter
+
+        /*// TODO : 차트 리소스
+        var ivBackground: ImageView = view.findViewById(R.id.ivBackground)
+        var ivChartImg: ImageView = view.findViewById(R.id.ivChartImg)
+        var tvChartThemeTitle: TextView = view.findViewById(R.id.tvChartThemeTitle)
+
+        database!!.getReference("chart").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                hashtagList.clear()
+                for (data in snapshot.children) {
+                    var chart = data.getValue(Chart::class.java)
+                    // TODO: listview 추가하기
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // db를 가져오던 중 에러 발생 시
+                Log.e(TAG, "DB를 가져오던 중 에러가 발생했습니다." + error.toException().toString())
+            }
+        })*/
+
+
+        btnAddToPlaylist.visibility = View.VISIBLE
+        btnAddToPlaylist.setOnClickListener {
+            var playlistRef = database.getReference("song_of_playlist")
+            var count:Int = adapter.itemCount
+            var cnt:Int = listOf(playlistRef).size
+
+            var list = songList.toMutableList()
+
+            if (count > 0) {
+                for (idx in 0..count-1) {
+
+                    if (selectedList.get(idx, false)) {
+                        Log.d(TAG, list.get(idx).title.toString())
+
+                        var tmpTitle = list.get(idx).title.toString()
+                        var tmpArtist = list.get(idx).artist.toString()
+                        var tmpAlbum = list.get(idx).img_album.toString()
+                        var tmpSound = list.get(idx).url_sound.toString()
+
+                        playlistRef.child("song_$cnt").child("title").setValue(tmpTitle)
+                        playlistRef.child("song_$cnt").child("artist").setValue(tmpArtist)
+                        playlistRef.child("song_$cnt").child("img_album").setValue(tmpAlbum)
+                        playlistRef.child("song_$cnt").child("url_sound").setValue(tmpSound)
+
+                        cnt += 1
+
+                    }
+                }
+            }
+        }
 
         return view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        // TODO : Activity에서 Fragment를 모두 생성한 뒤 호출
-        //  -> UI와 관련된 View 변경 작업 (View 초기화, View 생성(setContentView 호출) 등 처리
-        if (showToast) Toast.makeText(activity, "$TAG.onActivityCreated()", Toast.LENGTH_SHORT).show()
-    }
-
-    // Fragment 생명주기에는 onRestart()가 없다!
-/*    override fun onRestart() {
-        super.onRestart()
-    }*/
-
-    override fun onStart() {
-        super.onStart()
-        // TODO : Activity와 마찬가지로 Fragment가 화면에 보이기 바로 직전에 호출
-        if (showToast) Toast.makeText(activity, "$TAG.onStart()", Toast.LENGTH_SHORT).show()
-    }
-
     override fun onResume() {
         super.onResume()
-        // TODO : Activity와 마찬가지로 Fragment가 사용자와 상호작용을 하기 바로 직전에 호출
-        if (showToast) Toast.makeText(activity, "$TAG.onResume()", Toast.LENGTH_SHORT).show()
-    }
 
-    override fun onPause() {
-        super.onPause()
-        // TODO : 다른 Fragment가 화면을 가리게 되어 기존 Fragment의 화면이 사라지게 되는 시점에서 호출, 기존 레이아웃은 백스택으로 들어감
-        if (showToast) Toast.makeText(activity, "$TAG.onPause()", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        // TODO : Fragment가 화면에서 더 이상 보여지지 않게 되었을 때(기능을 완전히 상실했을 때) 호출
-        if (showToast) Toast.makeText(activity, "$TAG.onStop()", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        // TODO : Fragment의 View들의 리소르를 해제
-        if (showToast) Toast.makeText(activity, "$TAG.onDestroyView()", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        // TODO : Fragment가 완전히 소멸될 때 호출
-        if (showToast) Toast.makeText(activity, "$TAG.onDestroy()", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        // TODO : Fragment가 Activity와 연결이 끊기기 직전에 호출
-        if (showToast) Toast.makeText(activity, "$TAG.onDetach()", Toast.LENGTH_SHORT).show()
+        if (adapter.itemCount > 0) {
+            btnAddToPlaylist.visibility = View.GONE
+        }
+        else {
+            btnAddToPlaylist.visibility = View.VISIBLE
+        }
     }
 }

@@ -31,10 +31,10 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tvFindId"
+                    android:id="@+id/tvFindEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="아이디 찾기"
+                    android:text="이메일 찾기"
                     android:layout_marginRight="10dp"
 
                     android:textSize="12sp"
@@ -66,14 +66,14 @@
                     app:layout_constraintTop_toTopOf="@id/tvVerticalBar" />
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etLoginId"
+                    android:id="@+id/etLoginEmail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/btn_login_edittext"
-                    android:hint="아이디"
+                    android:hint="이메일"
                     android:inputType="textVisiblePassword"
 
                     android:minWidth="0dp"
@@ -97,9 +97,9 @@
                     android:minWidth="0dp"
                     android:minHeight="0dp"
 
-                    app:layout_constraintEnd_toEndOf="@+id/etLoginId"
-                    app:layout_constraintStart_toStartOf="@id/etLoginId"
-                    app:layout_constraintTop_toBottomOf="@id/etLoginId" />
+                    app:layout_constraintEnd_toEndOf="@+id/etLoginEmail"
+                    app:layout_constraintStart_toStartOf="@id/etLoginEmail"
+                    app:layout_constraintTop_toBottomOf="@id/etLoginEmail" />
 
                     <android.widget.Button
                     android:id="@+id/btnLogin"
@@ -113,8 +113,8 @@
                     android:textColor="@color/white"
 
                     android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="@id/etLoginId"
-                    app:layout_constraintStart_toStartOf="@id/etLoginId"
+                    app:layout_constraintEnd_toEndOf="@id/etLoginEmail"
+                    app:layout_constraintStart_toStartOf="@id/etLoginEmail"
                     app:layout_constraintTop_toBottomOf="@id/etLoginPw" />
 
 
@@ -146,8 +146,8 @@
                     android:textSize="16sp"
 
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@id/etLoginId"
-                    app:layout_constraintStart_toStartOf="@id/etLoginId"
+                    app:layout_constraintEnd_toEndOf="@id/etLoginEmail"
+                    app:layout_constraintStart_toStartOf="@id/etLoginEmail"
                     app:layout_constraintTop_toBottomOf="@id/tvRegister" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

@@ -1,85 +1,89 @@
 package com.green.musicapp
 
-import android.app.Dialog
 import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
+import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import java.util.regex.Pattern
+
 
 class RegisterActivity : AppCompatActivity() {
     private val TAG:String = "RegisterActivity"
+    private var firebaseAuth: FirebaseAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        // DB - init
-        var db:AppDatabase? = null
-        var userList = mutableListOf<User>()
-        db = AppDatabase.getInstance(this)
+        firebaseAuth = FirebaseAuth.getInstance()
 
-        // DB - 이전에 저장한 내용 모두 불러와서 추가
-        val savedUser = db!!.userDao().getAll()
-        if (savedUser.isNotEmpty()) {
-            userList.addAll(savedUser)
-        }
-
-        val etRegisterId:EditText = findViewById(R.id.etRegisterId)
+        val etRegisterEmail:EditText = findViewById(R.id.etRegisterEmail)
         val etRegisterPw:EditText = findViewById(R.id.etRegisterPw)
-        val btnCheckId:Button = findViewById(R.id.btnCheckId)
+        val btnCheckEmail:Button = findViewById(R.id.btnCheckEmail)
         val btnRegister:Button = findViewById(R.id.btnAddRegister)
-        var strId:String
+        var strEmail:String
         var strPw:String
-        var checkedId:Boolean = false
+        var checkedEmail:Boolean = false
 
-        // 넘겨받은 데이터가 있는 경우, 바로 회원가입 할 수 있도록 EditText에 텍스트 넣어주기
-        val getId:String? = intent.getStringExtra("id")
+        // email 형식 패턴
+        val emailPattern:String = "^[a-zA-Z0-9]+@[a-zA-Z0-9.]+$"
+
+        // LoginActivity에서 넘겨받은 데이터가 있는 경우, 바로 회원가입 하도록 EditText에 텍스트 넣기
+        val getEmail:String? = intent.getStringExtra("email")
         val getPw:String? = intent.getStringExtra("pw")
-        if (getId != null) {
-            etRegisterId.setText(getId)
+        if (getEmail != null) {
+            etRegisterEmail.setText(getEmail)
             etRegisterPw.setText(getPw)
 
-            strId = etRegisterId.text.toString()
+            strEmail = etRegisterEmail.text.toString()
             strPw = etRegisterPw.text.toString()
         }
 
+        fun colorMode(isVerifiedEmail: Boolean) {
+            val resInactiveBg: Int = R.drawable.btn_login_register_inavailable
+            val resInactiveColor: Int = R.color.light_gray
+            val resActiveBg: Int = R.drawable.btn_login_register_available
+            val resActiveColor: Int = R.color.melon_signature
 
-        fun colorMode(flag:Boolean) {
-            if (flag) {
-                btnCheckId.setBackgroundResource(R.drawable.btn_login_register_inavailable)
-                btnCheckId.setTextColor(getColor(R.color.light_gray))
-                btnRegister.setBackgroundResource(R.drawable.btn_login_register_available)
-                btnRegister.setTextColor(getColor(R.color.melon_signature))
+            if (isVerifiedEmail) {
+                // 중복체크 버튼 비활성화
+                btnCheckEmail.setBackgroundResource(resInactiveBg)
+                btnCheckEmail.setTextColor(getColor(resInactiveColor))
+                // 회원가입 버튼 활성화
+                btnRegister.setBackgroundResource(resActiveBg)
+                btnRegister.setTextColor(getColor(resActiveColor))
             }
             else {
-                btnCheckId.setBackgroundResource(R.drawable.btn_login_register_available)
-                btnCheckId.setTextColor(getColor(R.color.melon_signature))
-                btnRegister.setBackgroundResource(R.drawable.btn_login_register_inavailable)
-                btnRegister.setTextColor(getColor(R.color.light_gray))
+                // 중복체크 버튼 활성화
+                btnCheckEmail.setBackgroundResource(resActiveBg)
+                btnCheckEmail.setTextColor(getColor(resActiveColor))
+                // 회원가입 버튼 비활성화
+                btnRegister.setBackgroundResource(resInactiveBg)
+                btnRegister.setTextColor(getColor(resInactiveColor))
             }
         }
-        fun OpenDialog(view:View) {
+        fun OpenDialog(view: View) {
             val builder:AlertDialog.Builder = AlertDialog.Builder(this)
-            builder.setMessage("사용가능한 아이디 입니다.\n사용하시겠습니까?")
+            builder.setMessage("사용가능한 이메일 입니다.\n사용하시겠습니까?")
 
             var listener = DialogInterface.OnClickListener { dialogInterface, i ->
                 when(i) {
                     DialogInterface.BUTTON_POSITIVE -> {
-                        checkedId = true
-                        colorMode(checkedId)
+                        checkedEmail = true
+                        colorMode(checkedEmail)
                     }
                     DialogInterface.BUTTON_NEGATIVE -> {
-                        checkedId = false
-                        colorMode(checkedId)
+                        checkedEmail = false
+                        colorMode(checkedEmail)
                     }
                 }
             }
@@ -89,43 +93,67 @@ class RegisterActivity : AppCompatActivity() {
             builder.show()
         }
 
-        btnCheckId.setOnClickListener {
-            strId = etRegisterId.text.toString()
-            val user:User? = db!!.userDao().getMatchUser(strId!!)
+        btnCheckEmail.setOnClickListener {
+            strEmail = etRegisterEmail.text.toString()
+            hideKeyboard(btnCheckEmail)
 
-            if (strId!!.equals("")) {
-                checkedId = false
-                colorMode(checkedId)
-                Toast.makeText(applicationContext, "아이디를 입력하세요.", Toast.LENGTH_SHORT).show()
+            if (!Pattern.matches(emailPattern, strEmail)) {
+                Toast.makeText(applicationContext, "이메일 형식을 올바르게 입력해주세요.", Toast.LENGTH_SHORT).show()
+            }
+            else if (strEmail!!.equals("")) {
+                checkedEmail = false
+                colorMode(checkedEmail)
+                Toast.makeText(applicationContext, "이메일을 입력하세요.", Toast.LENGTH_SHORT).show()
 
             }
-            // 생성할 id 중복 체크
-            else if (user == null) {
-                OpenDialog(btnCheckId)
-            }
-            else {
-                OpenDialog(btnCheckId)
-                Toast.makeText(applicationContext, "이미 존재하는 아이디입니다.", Toast.LENGTH_SHORT).show()
-            }
+
+
+            firebaseAuth!!.createUserWithEmailAndPassword(strEmail, "000000")
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            firebaseAuth!!.currentUser!!.delete()
+                            OpenDialog(btnCheckEmail)
+                        }
+                        else {
+                            Toast.makeText(applicationContext, "이미 존재하는 계정입니다.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
         }
 
         btnRegister.setOnClickListener {
-            strId = etRegisterId.text.toString()
+            strEmail = etRegisterEmail.text.toString()
             strPw = etRegisterPw.text.toString()
 
             // DB에 id, pw 등록
-            if (checkedId) {
-                db!!.userDao().insert(User(strId!!, strPw!!))
-                Toast.makeText(applicationContext, "아이디를 생성했습니다", Toast.LENGTH_SHORT).show()
-                
+            if (checkedEmail) {
+                createUser(strEmail, strPw)
+
                 // LoginActivity의 EditText에 값 넣어주기
                 intent = Intent(applicationContext, LoginActivity::class.java)
-                intent.putExtra("id", strId)
+                intent.putExtra("email", strEmail)
                 intent.putExtra("pw", strPw)
                 startActivity(intent)
-                Toast.makeText(applicationContext, "RegisterActivity 종료", Toast.LENGTH_SHORT).show()
                 finish()
             }
         }
+    }
+
+    private fun createUser(email: String, password: String) {
+        firebaseAuth!!.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    // 계정 생성에 성공하면 UI와 user의 정보를 업데이트
+                    Toast.makeText(this, "계정을 성공적으로 생성했습니다.", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "계정을 생성하지 못했습니다.", Toast.LENGTH_SHORT).show()
+                }
+
+            }
+    }
+
+    fun hideKeyboard(view: View) {
+        var imm:InputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }

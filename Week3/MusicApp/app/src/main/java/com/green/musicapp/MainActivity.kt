@@ -8,29 +8,39 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
 import android.os.PersistableBundle
+import android.text.Layout
+import android.view.LayoutInflater
 import android.view.MenuItem
+import android.view.View
+import android.view.View.inflate
+import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import android.widget.ToggleButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import android.os.Debug as Debug1
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     private val TAG:String = "MainActivity"
-    val showToast:Boolean = false
+
+    private var firebaseAuth: FirebaseAuth? = null
+    private var firebaseUser:FirebaseUser? = null
+    private lateinit var database: FirebaseDatabase
+    private lateinit var databaseRef: DatabaseReference
+
+
     var musicIndex = 1
 
     // Activity에서 바인드할 Service의 레퍼런스를 저장할 변수
     var mService:MusicService? = null
     // bound 상태 저장 변수
     private var mBound:Boolean = false
-
-    companion object {
-        var db:AppDatabase? = null
-    }
 
     override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
         super.onSaveInstanceState(outState, outPersistentState)
@@ -48,15 +58,35 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         // TODO : Activity 생성 시 -> 초기화 처리와 View 생성(setContentView) 등 처리
         setContentView(R.layout.activity_main)
 
-        if (showToast) Toast.makeText(this, "$TAG.onCreate()", Toast.LENGTH_SHORT).show()
+        firebaseAuth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance()
+        databaseRef = database!!.getReference("song_of_chart")
 
+
+        // 로그인 성공 시 firebase user 업데이트
+        val strEmail:String = intent.getStringExtra("email")
+        val strPw:String = intent.getStringExtra("pw")
+        if (strEmail == null) {
+            firebaseAuth!!.signInWithEmailAndPassword(strEmail, strPw)
+        }
+        firebaseUser = firebaseAuth!!.currentUser
+
+
+        val btnPlayBarList:ImageButton = findViewById(R.id.btnSong)
         val btnStartMiniBar:ToggleButton = findViewById(R.id.btnPlayBarStart)
         val tvPlayBarNowTitle:TextView = findViewById(R.id.tvPlayBarNowTitle)
         val tvPlayBarNowArtist:TextView = findViewById(R.id.tvPlayBarNowTitle)
 
-        val tvTitleRid:Int = resources.getIdentifier("chart_song_name_$musicIndex", "string", packageName)
-        val tvArtistRid:Int = resources.getIdentifier("chart_song_artist_$musicIndex", "string", packageName)
-        val musicRid:Int = resources.getIdentifier("sound_$musicIndex", "raw", packageName)
+        btnPlayBarList.setOnClickListener {
+            val intent = Intent(applicationContext, PlaylistActivity::class.java)
+            val putNowTitle:String = tvPlayBarNowTitle.text.toString()
+            val putNowArtist:String = tvPlayBarNowArtist.text.toString()
+            intent.putExtra("now_title", putNowTitle)
+            intent.putExtra("now_artist", putNowArtist)
+            startActivity(intent)
+        }
+
+
 
         if (savedInstanceState != null) {
             tvPlayBarNowTitle.setText(savedInstanceState.getString("title"))
@@ -81,7 +111,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onRestart() {
         super.onRestart()
         // TODO : Activity 재시작 할 때 -> 보통은 아무것도 하지 않아도 된다
-        if (showToast) Toast.makeText(this, "$TAG.onRestart()", Toast.LENGTH_SHORT).show()
 
         // TODO : 실행중인 노래가 있다면 노래 Activity 보여주기
     }
@@ -89,7 +118,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onStart() {
         super.onStart()
         // TODO : Activity 아직 표시X ->통신이나 센서 처리를 시작
-        if (showToast) Toast.makeText(this, "$TAG.onStart()", Toast.LENGTH_SHORT).show()
 
         if (mService == null) {
             // Service 객체 없다면?  create를 하고 onStartCommand를 호출
@@ -105,7 +133,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onResume() {
         super.onResume()
         // TODO : Activity 최전면 표시 상태 -> 필요한 애니메이션 실행 등의 호면 갱신 처리
-        if (showToast) Toast.makeText(this, "$TAG.onResume()", Toast.LENGTH_SHORT).show()
 
         val btnStartMiniBar:ToggleButton = findViewById(R.id.btnPlayBarStart)
 
@@ -118,6 +145,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 mService!!.musicStart()
             }
         }
+
+
     }
 
     // Service 연결상태 관리 객체
@@ -139,7 +168,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onPause() {
         super.onPause()
         // TODO : Activity가 일부만 표시되는 일시정지 상태 -> 애니메이션 등 화면 갱신 처리를 정지 또는 일시정지할 때 필요없는 리소스를 해제하거나 필요한 데이터를 영속화
-        if (showToast) Toast.makeText(this, "$TAG.onPause()", Toast.LENGTH_SHORT).show()
 
         // 앱을 실행했을 때, 이미 노래가 재생중이면 해당 서비스의 정보를 받아오기
         // 참고 : https://jaeryo2357.tistory.com/31
@@ -151,7 +179,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onStop() {
         super.onStop()
         // TODO : Activity 아예 가려져서 정지된 상태 -> 통신이나 센서 처리를 정지
-        if (showToast) Toast.makeText(this, "$TAG.onStop()", Toast.LENGTH_SHORT).show()
 
         // Activity 가려졌을 때 서비스 연결 해제 처리
         if (mBound) {
@@ -164,7 +191,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         super.onDestroy()
         // TODO : Activity 폐기할 때 -> 필요없는 리소스 해제, Activity 참조는 모두 정리
         // TODO : Activity가 폐기되면 가비지컬렉션이 메모리 영역에서 해제하지만, Activity의 인스턴스가 다른 클래스에서 참조되고 있을 때는 폐기된 후에도 메모리에 남아 결국 메모리 누수가 발생하게 된다.
-        if (showToast) Toast.makeText(this, "$TAG.onDestroy()", Toast.LENGTH_SHORT).show()
 
         android.os.Debug.stopMethodTracing() // 쓰레드 해제
     }

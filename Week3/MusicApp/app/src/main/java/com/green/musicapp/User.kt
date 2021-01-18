@@ -1,9 +1,9 @@
 package com.green.musicapp
 
-import androidx.room.*
+import android.graphics.Bitmap
 
-@Entity(tableName = "tb_user")
 data class User(
-    @PrimaryKey(autoGenerate = false) var id:String,
-    var pw:String
+    val email:String,
+    val password:String,
+    val picture: String?
 )

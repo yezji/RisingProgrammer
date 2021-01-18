@@ -34,16 +34,14 @@
         android:id="@+id/tvNameInChartOfSong"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/chart_song_name"
-        android:textColor="@color/black"
+        android:layout_marginLeft="10dp"
         android:maxLines="1"
         android:singleLine="true"
-
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:text="@string/chart_song_name"
+        android:textColor="@color/white"
 
         app:layout_constraintBottom_toTopOf="@id/tvArtistInChartOfSong"
-        app:layout_constraintEnd_toStartOf="@id/ibPlayChartOfSong"
+        app:layout_constraintEnd_toStartOf="@+id/ibMoreChartOfSong"
         app:layout_constraintStart_toEndOf="@id/cvAlbumOfSong"
         app:layout_constraintTop_toTopOf="@+id/cvAlbumOfSong" />
 
@@ -51,33 +49,19 @@
         android:id="@+id/tvArtistInChartOfSong"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/chart_song_artist"
-        android:textSize="12dp"
+        android:layout_marginLeft="10dp"
         android:maxLines="1"
         android:singleLine="true"
+        android:text="@string/chart_song_artist"
+        android:textColor="@color/tag_white"
 
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:textSize="12dp"
 
         app:layout_constraintBottom_toBottomOf="@+id/cvAlbumOfSong"
-        app:layout_constraintEnd_toStartOf="@id/ibPlayChartOfSong"
+        app:layout_constraintEnd_toStartOf="@+id/ibMoreChartOfSong"
         app:layout_constraintStart_toEndOf="@+id/cvAlbumOfSong"
-        app:layout_constraintTop_toBottomOf="@id/tvNameInChartOfSong"/>
+        app:layout_constraintTop_toBottomOf="@id/tvNameInChartOfSong" />
 
-    <ImageButton
-        android:id="@+id/ibPlayChartOfSong"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/btn_chart_playsong"
-        android:scaleType="centerCrop"
-        android:background="@color/transparent"
-
-        android:layout_margin="10dp"
-
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/ibMoreChartOfSong"/>
     <ImageButton
         android:id="@+id/ibMoreChartOfSong"
         android:layout_width="24dp"

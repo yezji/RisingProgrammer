@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PlaylistActivity"
+    android:background="@color/common_google_signin_btn_text_light_default">
+
+    <TextView
+        android:id="@+id/tvPlaylistTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="재생목록"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/llPlaylistTop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPlaylistTitle"
+        android:padding="10dp"
+        android:gravity="center">
+
+        <android.widget.Button
+            android:id="@+id/btnSetRepeat"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:background="@drawable/btn_playlist_repeat"
+            android:layout_marginRight="10dp"/>
+        <android.widget.Button
+            android:id="@+id/btnInnerSearch"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/btn_playlist_search"
+            android:layout_marginRight="10dp"/>
+        <Spinner
+            android:id="@+id/spinnerSetOrder"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"/>
+        <android.widget.Button
+            android:id="@+id/btnModify"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:background="@drawable/btn_playlist_modify"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPlaylist"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llPlaylistTop"
+        app:layout_constraintBottom_toTopOf="@id/bottomPlayBar"
+        tools:listitem="@layout/item_playlist_song"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomPlayBar"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+
+        android:background="@color/cardview_dark_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/background_light_gray"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/btnSong"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="20dp"
+
+            android:scaleType="centerInside"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnPlayBarPrevious"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/btn_playlist_previous_active"
+            android:scaleType="centerInside"
+
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+
+            app:layout_constraintEnd_toStartOf="@id/btnPlayBarStart"
+            app:layout_constraintTop_toTopOf="@id/btnSong"
+            app:layout_constraintBottom_toBottomOf="@id/btnSong"/>
+
+        <ToggleButton
+            android:id="@+id/btnPlayBarStart"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_play_list_toggle"
+            android:scaleType="centerInside"
+            android:textOn=""
+            android:textOff=""
+
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnSong"
+            app:layout_constraintBottom_toBottomOf="@id/btnSong"/>
+
+        <ImageButton
+            android:id="@+id/btnPlayBarNext"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/btn_playlist_next_active"
+            android:scaleType="centerInside"
+
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+
+            app:layout_constraintStart_toEndOf="@id/btnPlayBarStart"
+            app:layout_constraintTop_toTopOf="@id/btnSong"
+            app:layout_constraintBottom_toBottomOf="@id/btnSong"/>
+
+        <ImageButton
+            android:id="@+id/btnSetEq"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:scaleType="centerInside"
+            android:background="@drawable/btn_playlist_eq"
+
+            android:layout_marginEnd="20dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
