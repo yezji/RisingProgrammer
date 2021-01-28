@@ -39,13 +39,13 @@
 
      * Backend Language
        	* PHP (라라벨 프레임워크)
-       	* ASP (닷넷 프레임워크)
+          	* ASP (닷넷 프레임워크)
        	* JSP (스프링, 스프링 부트 프레임워크)
        	* Python (장고 프레임워크)
        	* JavaScript (Node js, Vue js 프레임워크)
      * Backend Language는 주방장의 칼과 같다고 비유한다.
        	* 어떤 칼로 썰어도 음식은 만들어지지만
-       	* 정교하게 썰어야할 떄는 일식도 사용하는 방법 선택
+          	* 정교하게 썰어야할 떄는 일식도 사용하는 방법 선택
 
   * 컴퓨터 서버와 홀알바 서버의 관통하는 특징?
 
@@ -100,13 +100,13 @@
 
   * [방법 1] Query string
 
-    * /Users?userId="1234"&keyword=""
+    * /users?userid="1234"&keyword=""
     * 노출 O
 
   * [방법 2] Path variable ✅
 
-    * /Users/1
-    * /Users/:userId 또는 /Users/{userID}
+    * /users/1
+    * /users/:userid 또는 /users/{userid}
     * 노출 O
 
   * [방법 3] Body
