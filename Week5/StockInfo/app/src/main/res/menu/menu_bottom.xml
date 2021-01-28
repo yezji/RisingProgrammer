@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/round_home_24"
+        android:title="HOME" />
+
+    <item
+        android:id="@+id/menu_stock"
+        android:icon="@drawable/round_auto_graph_24"
+        android:title="STOCK" />
+
+    <item
+        android:id="@+id/menu_user"
+        android:icon="@drawable/round_person_24"
+        android:title="MY PAGE" />
+
+</menu>
