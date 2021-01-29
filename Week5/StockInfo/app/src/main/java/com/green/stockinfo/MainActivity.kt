@@ -3,6 +3,7 @@ package com.green.stockinfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         var transaction = supportFragmentManager.beginTransaction()
+        toolBar.visibility = View.VISIBLE
         var mTAG: String = ""
         when(item.itemId) {
             R.id.menu_home -> {
@@ -51,6 +53,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 var fragmentUser = UserFragment()
                 supportFragmentManager.popBackStackImmediate(mTAG, FragmentManager.POP_BACK_STACK_INCLUSIVE)
                 transaction.replace(R.id.frameLayout, fragmentUser, mTAG)
+                toolBar.visibility = View.GONE
             }
         }
 
