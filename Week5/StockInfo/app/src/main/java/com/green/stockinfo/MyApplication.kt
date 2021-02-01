@@ -3,10 +3,17 @@ package com.green.stockinfo
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MyApplication : Application() {
+    private val TAG = javaClass.simpleName
+
     override fun onCreate() {
         SharedPreferenceManager.init(applicationContext)
+
         super.onCreate()
     }
 }
@@ -15,6 +22,7 @@ object SharedPreferenceManager {
     private const val PREF_TOKEN = "token"
     private const val PREF_NAME = "name"
     private const val PREF_MODE = Context.MODE_PRIVATE
+
     private lateinit var sharedPreferences: SharedPreferences
 
     fun init(context: Context) {

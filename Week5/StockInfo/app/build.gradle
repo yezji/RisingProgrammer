@@ -41,8 +41,22 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
+    // retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // OkHttp
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+
     // OPEN API (for Naver login)
-    implementation 'com.naver.com'
+    implementation 'com.naver.nid:naveridlogin-android-sdk:4.2.6'   // import from jcenter
+    // naveridlogin dependencies
+    def android_x_version = "1.0.0"
+    implementation "androidx.appcompat:appcompat:$android_x_version"
+    implementation "androidx.legacy:legacy-support-core-utils:$android_x_version"
+    implementation "androidx.browser:browser:$android_x_version"
+    implementation "androidx.legacy:legacy-support-v4:$android_x_version"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
